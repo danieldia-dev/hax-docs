@@ -349,14 +349,14 @@ The hax system consists of multiple components working together in a pipeline:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      Rust Source Code                        │
-│                   (with hax-lib annotations)                 │
+│                      Rust Source Code                       │
+│                   (with hax-lib annotations)                │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          │ cargo hax into <backend>
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   Rust Compiler (rustc)                      │
+│                   Rust Compiler (rustc)                     │
 │  - Type checking and inference                              │
 │  - Borrow checking                                          │
 │  - Macro expansion                                          │
@@ -367,7 +367,7 @@ The hax system consists of multiple components working together in a pipeline:
                          │ THIR + Metadata
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Hax Frontend (Rust)                       │
+│                    Hax Frontend (Rust)                      │
 │  - THIR extraction via rustc plugin                         │
 │  - Serialization to JSON/CBOR                               │
 │  - Type information preservation                            │
@@ -377,7 +377,7 @@ The hax system consists of multiple components working together in a pipeline:
                          │ JSON/CBOR AST
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                  Hax Engine (OCaml/Rust)                     │
+│                  Hax Engine (OCaml/Rust)                    │
 │  - AST simplification and normalization                     │
 │  - Pattern desugaring                                       │
 │  - Trait resolution                                         │
@@ -389,24 +389,24 @@ The hax system consists of multiple components working together in a pipeline:
                          │ Simplified AST
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   Backend Translators                        │
-│  ┌──────────┬──────────┬──────────┬──────────┬──────────┐  │
-│  │   F*     │  Lean4   │  Coq     │ ProVerif │ SSProve  │  │
-│  │  (SMT)   │  (Tactic)│ (Rocq)   │ (Proto)  │ (Crypto) │  │
-│  └──────────┴──────────┴──────────┴──────────┴──────────┘  │
+│                   Backend Translators                       │
+│  ┌──────────┬──────────┬──────────┬──────────┬──────────┐   │
+│  │   F*     │  Lean4   │  Coq     │ ProVerif │ SSProve  │   │
+│  │  (SMT)   │  (Tactic)│ (Rocq)   │ (Proto)  │ (Crypto) │   │
+│  └──────────┴──────────┴──────────┴──────────┴──────────┘   │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          │ Generated Code
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Verification Tools                        │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │  F*.exe, Lean, coqc, proverif, easycrypt, ...       │  │
-│  │  - SMT solving (Z3, CVC5, etc.)                     │  │
-│  │  - Interactive proof development                     │  │
-│  │  - Symbolic execution                                │  │
-│  │  - Cryptographic game proofs                         │  │
-│  └──────────────────────────────────────────────────────┘  │
+│                    Verification Tools                       │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │  F*.exe, Lean, coqc, proverif, easycrypt, ...        │   │
+│  │  - SMT solving (Z3, CVC5, etc.)                      │   │
+│  │  - Interactive proof development                     │   │
+│  │  - Symbolic execution                                │   │
+│  │  - Cryptographic game proofs                         │   │
+│  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 ```
 

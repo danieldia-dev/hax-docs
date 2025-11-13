@@ -29,13 +29,14 @@ The system consists of two primary components:
 The macro expansion process is the first step in the `hax` pipeline. When Rust code is compiled (either by `cargo build` or by `hax`), these macros rewrite the code to insert the necessary hooks for verification or runtime checks.
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    User Code                            │
-│  #[requires(x > 0)]                                     │
-│  fn foo(x: u32) { assert!(x > 0); }                     │
-└────────────────────┬────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│                    User Code                             │
+│  #[requires(x > 0)]                                      │
+│  fn foo(x: u32) { assert!(x > 0); }                      │
+└────────────────────┬─────────────────────────────────────┘
                      │
-┌────────────────────▼─────────────────────────────────────┐
+                     ▼
+┌──────────────────────────────────────────────────────────┐
 │              Macro Expansion Layer                       │
 ├──────────────────────────────────────────────────────────┤
 │  ┌─────────────────┐  ┌──────────────────────┐           │
@@ -45,14 +46,15 @@ The macro expansion process is the first step in the `hax` pipeline. When Rust c
 │  └─────────────────┘  └──────────────────────┘           │
 └────────────────────┬─────────────────────────────────────┘
                      │
-┌────────────────────▼────────────────────────────────────┐
-│              Transformed Code                           │
-│  fn foo(x: u32) {                                       │
-│    #[cfg(hax)] hax_lib::_internal_precondition(x > 0);  │
-│    #[cfg(hax)] hax_lib::assert(x > 0);                  │
-│    #[cfg(not(hax))] assert!(x > 0);                     │
-│  }                                                      │
-└─────────────────────────────────────────────────────────┘
+                     ▼
+┌──────────────────────────────────────────────────────────┐
+│              Transformed Code                            │
+│  fn foo(x: u32) {                                        │
+│    #[cfg(hax)] hax_lib::_internal_precondition(x > 0);   │
+│    #[cfg(hax)] hax_lib::assert(x > 0);                   │
+│    #[cfg(not(hax))] assert!(x > 0);                      │
+│  }                                                       │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ### Macro Categories
