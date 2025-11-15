@@ -45,10 +45,10 @@ This README provides a complete overview of all hax capabilities. For deeper div
 
 2. [Core Components](#2-core-components)
    - Component Overview
-   - hax-lib (Core Library)
-   - hax-lib-macros (Procedural Macros)
-   - cargo-hax (CLI Tool)
-   - hax-engine (Translation Engine)
+   - `hax-lib` (Core Library)
+   - `hax-lib-macros` (Procedural Macros)
+   - `cargo-hax` (CLI Tool)
+   - `hax-engine` (Translation Engine)
    - Backend Translators
 
 3. [Getting Started](#3-getting-started)
@@ -60,28 +60,28 @@ This README provides a complete overview of all hax capabilities. For deeper div
 ### Part 2: Core Library (hax-lib)
 
 4. [Type System and Mathematical Abstractions](#4-type-system-and-mathematical-abstractions)
-   - Mathematical Integers (Int)
-   - Logical Propositions (Prop)
+   - Mathematical Integers (`Int`)
+   - Logical Propositions (`Prop`)
    - Abstraction and Concretization
    - Type Conversions and Lifting
 
 5. [Assertions and Assumptions](#5-assertions-and-assumptions)
-   - assert! - Provable Assertions
-   - assume! - Trusted Assumptions
-   - assert_prop! - Logical Propositions
-   - debug_assert! - Runtime-Only Checks
+   - `assert!` - Provable Assertions
+   - `assume!` - Trusted Assumptions
+   - `assert_prop!` - Logical Propositions
+   - `debug_assert!` - Runtime-Only Checks
    - Best Practices and Safety
 
 6. [Logical Specifications](#6-logical-specifications)
-   - Universal Quantification (forall!)
-   - Existential Quantification (exists!)
-   - Logical Implication (implies!)
+   - Universal Quantification (`forall!`)
+   - Existential Quantification (`exists!`)
+   - Logical Implication (`implies!`)
    - Proposition Combinators
    - Writing Complex Specifications
 
 7. [Refinement Types](#7-refinement-types)
    - Refinement Type Theory
-   - The Refinement Trait
+   - The `Refinement` Trait
    - Creating Custom Refinements
    - Refinement Type Patterns
    - Advanced Usage
@@ -89,30 +89,30 @@ This README provides a complete overview of all hax capabilities. For deeper div
 ### Part 3: Specification and Verification
 
 8. [Function Contracts](#8-function-contracts)
-   - Preconditions (#[requires])
-   - Postconditions (#[ensures])
+   - Preconditions (`#[requires]`)
+   - Postconditions (`#[ensures]`)
    - Multiple Contracts
    - Contract Composition
    - Advanced Contract Patterns
 
 9. [Loop Specifications](#9-loop-specifications)
-   - Loop Invariants (#[loop_invariant])
-   - Termination Measures (#[decreases])
+   - Loop Invariants (`#[loop_invariant]`)
+   - Termination Measures (`#[decreases]`)
    - Ghost Variables
    - Invariant Design Patterns
    - Complex Loop Examples
 
 10. [Advanced Attributes](#10-advanced-attributes)
-    - Opacity and Modularity (#[opaque])
-    - Lemmas and Auxiliary Proofs (#[lemma])
-    - Visibility Control (#[exclude], #[include])
+    - Opacity and Modularity `(#[opaque]`)
+    - Lemmas and Auxiliary Proofs (`#[lemma]`)
+    - Visibility Control (`#[exclude]`, `#[include]`)
     - Type-Level Specifications
     - Backend-Specific Attributes
 
 ### Part 4: Toolchain and Backends
 
 11. [CLI and Toolchain](#11-cli-and-toolchain)
-    - cargo-hax Overview
+    - `cargo-hax` Overview
     - Complete Command Reference
     - Configuration Options
     - Environment Variables
